@@ -5,8 +5,13 @@ jobs:
       - image: debian:stretch
 
     steps:
-      - checkout
-
+      - run:
+        # Récupération du code manuel car soucis avec "- checkout"
+          name: Clone the repo
+          command: |
+            git clone https://github.com/pachevalier/wiki-data-gouv
+            cd wiki-data-gouv
+            git checkout $CIRCLE_BRANCH
       - run:
           name: Get the data
           command: |
