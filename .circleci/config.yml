@@ -5,11 +5,6 @@ jobs:
       - image: debian:stretch
 
     steps: 
-      - run:
-          name: Installs
-          command: |
-            apt install ssh
-            apt install git
       - checkout
       - run:
           name: Get the data
