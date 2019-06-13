@@ -4,16 +4,15 @@ jobs:
     docker:
       - image: debian:stretch
 
-    steps:
+    steps: 
       - run:
-        # Récupération du code manuel car soucis avec "- checkout"
-          name: Clone the repo
+          name: Installs
           command: |
-            git clone https://github.com/pachevalier/wiki-data-gouv
-            cd wiki-data-gouv
-            git checkout $CIRCLE_BRANCH
+            apt install ssh
+            apt install git
+      - checkout
       - run:
           name: Get the data
           command: |
-            cd wiki-data-gouv
+            cd organisations-data-gouv
             ./getdata.sh
