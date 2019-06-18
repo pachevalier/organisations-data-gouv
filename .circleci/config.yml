@@ -9,7 +9,7 @@ jobs:
       - run:
           name: Get the data
           command: |
-            apt install git
+            sudo apt install git
             git clone https://github.com/pachevalier/organisations-data-gouv
             cd organisations-data-gouv
             git checkout $CIRCLE_BRANCH
