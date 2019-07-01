@@ -1,0 +1,5 @@
+SELECT ?datagouvid ?opendataportal WHERE {
+  ?item wdt:P3206 ?datagouvid.
+  ?item wdt:P1325 ?opendataportal.
+}
+ORDER BY ?datagouvid

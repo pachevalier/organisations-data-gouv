@@ -1,0 +1,6 @@
+SELECT ?datagouvid ?Twitter_username WHERE {
+  ?item wdt:P3206 ?datagouvid.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],fr". }
+  ?item wdt:P2002 ?Twitter_username.
+}
+ORDER BY ?datagouvid
