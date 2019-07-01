@@ -17,13 +17,6 @@ jobs:
 
 workflows:
     version: 2
-    dev:
-        jobs:
-            - update-and-publish:
-                filters:
-                    branches:
-                        only:
-                            - develop
     daily:
         jobs:
             - update-and-publish
