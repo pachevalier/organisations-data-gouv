@@ -9,4 +9,5 @@ jobs:
       - run:
           name: Get the data
           command: |
+            apt install curl |
             ./getdata.sh
