@@ -17,12 +17,12 @@ jobs:
 
 workflows:
     version: 2
-    daily:
+    weekly:
         jobs:
             - update-and-publish
         triggers:
             - schedule:
-                cron: 0 4 * * 2,3,4,5,6
+                cron: 0 10 * * 2
                 filters:
                     branches:
                         only:
