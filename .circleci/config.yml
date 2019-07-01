@@ -2,12 +2,11 @@ version: 2
 jobs:
   build:
     docker:
-      - image: colinfay/r-ci-tidyverse:3.6.0
-
+      - image:  circleci/python:3.6
+      
     steps: 
       - checkout
       - run:
           name: Get the data
           command: |
-            sudo apt install curl |
             ./getdata.sh
