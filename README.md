@@ -1,5 +1,7 @@
 # organisations-data-gouv
 
+[![CircleCI](https://circleci.com/gh/pachevalier/organisations-data-gouv.svg?style=svg)](https://circleci.com/gh/pachevalier/organisations-data-gouv)
+
 Learn from data.gouv organizations using Wikidata.
 
 Data are published on [data.gouv.fr](https://www.data.gouv.fr/fr/datasets/organisations-de-data-gouv-fr-reliees-a-wikidata/).
