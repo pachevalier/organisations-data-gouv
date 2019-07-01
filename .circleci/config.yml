@@ -10,3 +10,7 @@ jobs:
           name: Get the data
           command: |
             ./getdata.sh
+      - run:
+          name: Publish on data.gouv
+          command: |
+            ./publish.sh
