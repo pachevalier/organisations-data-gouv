@@ -2,3 +2,4 @@ SELECT ?datagouvid ?siren WHERE {
   ?item wdt:P3206 ?datagouvid.
   ?item wdt:P1616 ?siren.
 }
+ORDER BY ?datagouvid
