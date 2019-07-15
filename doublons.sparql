@@ -1,0 +1,9 @@
+SELECT * WHERE {
+  {
+    SELECT ?item (COUNT(?datagouvid) AS ?count) (GROUP_CONCAT(?datagouvid; SEPARATOR = " , ") AS ?ids)
+           WHERE { ?item wdt:P3206 ?datagouvid. }
+    GROUP BY ?item
+  }
+  FILTER(?count > 1)
+}
+ORDER BY ?item

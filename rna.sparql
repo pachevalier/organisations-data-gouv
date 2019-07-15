@@ -1,0 +1,5 @@
+SELECT ?datagouvid ?rna WHERE {
+  ?item wdt:P3206 ?datagouvid;
+    wdt:P3918 ?rna.
+}
+ORDER BY (?datagouvid)

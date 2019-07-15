@@ -1,0 +1,5 @@
+SELECT ?datagouvid ?code_insee WHERE {
+  ?item wdt:P3206 ?datagouvid;
+    wdt:P374 ?code_insee.
+}
+ORDER BY (?datagouvid)

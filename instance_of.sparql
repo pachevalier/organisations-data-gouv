@@ -1,0 +1,6 @@
+SELECT ?item ?itemLabel ?instance_of ?instance_ofLabel WHERE {
+  ?item wdt:P3206 ?datagouvid.
+  ?item wdt:P31 ?instance_of.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "fr" }
+}
+ORDER BY ?item ?instance_of

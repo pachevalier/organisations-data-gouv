@@ -1,0 +1,7 @@
+SELECT ?item ?itemLabel ?datagouvid ?filiale ?filialeLabel ?filialeid WHERE {
+  ?item wdt:P3206 ?datagouvid;
+    (wdt:P527|wdt:P355) ?filiale.
+  ?filiale wdt:P3206 ?filialeid.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
+}
+ORDER BY ?item

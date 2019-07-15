@@ -1,5 +1,5 @@
-SELECT ?datagouvid ?GitHub_username WHERE {
- ?item wdt:P3206 ?datagouvid.
- ?item wdt:P2037 ?GitHub_username.
+SELECT ?datagouvid ?github WHERE {
+  ?item wdt:P3206 ?datagouvid;
+    wdt:P2037 ?github.
 }
-ORDER BY ?datagouvid
+ORDER BY (?datagouvid)
