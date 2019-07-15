@@ -1,6 +1,0 @@
-SELECT ?datagouvid ?altLabel WHERE {
-  ?item wdt:P3206 ?datagouvid.
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],fr". }
-  OPTIONAL { ?item skos:altLabel ?altLabel . FILTER (lang(?altLabel) = "fr") }
-}
-ORDER BY ?datagouvid

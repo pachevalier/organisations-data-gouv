@@ -1,0 +1,20 @@
+SELECT ?datagouvid ?label WHERE {
+  {
+    SELECT ?datagouvid ?label WHERE {
+      ?item wdt:P3206 ?datagouvid.
+      SERVICE wikibase:label {
+        bd:serviceParam wikibase:language "fr".
+        ?item rdfs:label ?label.
+      }
+    }
+  }
+  UNION
+  {
+    SELECT ?datagouvid ?label WHERE {
+      ?item wdt:P3206 ?datagouvid;
+        skos:altLabel ?label.
+      FILTER((LANG(?label)) = "fr")
+    }
+  }
+}
+ORDER BY (?datagouvid)

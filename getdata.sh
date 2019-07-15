@@ -16,6 +16,8 @@ curl -G https://query.wikidata.org/bigdata/namespace/wdq/sparql --data-urlencode
 
 curl -G https://query.wikidata.org/bigdata/namespace/wdq/sparql --data-urlencode query="$(< instance_of.sparql)" -H 'Accept: text/csv' > instance_of.csv
 
+curl -G https://query.wikidata.org/bigdata/namespace/wdq/sparql --data-urlencode query="$(< labels.sparql)" -H 'Accept: text/csv' > labels.csv
+
 curl -G https://query.wikidata.org/bigdata/namespace/wdq/sparql --data-urlencode query="$(< filiales.sparql)" -H 'Accept: text/csv' > filiales.csv
 
 curl -G https://query.wikidata.org/bigdata/namespace/wdq/sparql --data-urlencode query="$(< twitter.sparql)" -H 'Accept: text/csv' > twitter.csv

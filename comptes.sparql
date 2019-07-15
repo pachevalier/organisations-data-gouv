@@ -1,0 +1,44 @@
+SELECT ?count ?description
+WITH {
+  SELECT (COUNT(*) AS ?count) WHERE {
+     SELECT * WHERE {
+       {
+          SELECT ?item (COUNT(?datagouvid) AS ?count) (GROUP_CONCAT(?datagouvid; SEPARATOR = " , ") AS ?ids)
+           WHERE { ?item wdt:P3206 ?datagouvid. }
+      GROUP BY ?item
+    }
+    FILTER(?count > 1)
+  }
+ }
+} AS %doublons
+WITH {
+  SELECT (COUNT(*) AS ?count) WHERE {
+    SELECT ?datagouvid ?item
+      WHERE {
+        ?item wdt:P3206 ?datagouvid .
+       }
+   }
+} AS %datagouvid
+WITH {
+SELECT (COUNT(*) AS ?count) WHERE {
+  ?item wdt:P3206 ?datagouvid;
+    wdt:P1616 ?siren.
+    }
+} AS %siren
+WHERE {
+  {
+    INCLUDE %doublons
+    BIND("Nombre de doublons" AS ?description)
+  }
+  UNION
+  {
+    INCLUDE %datagouvid
+    BIND("Nombre d'organisations reliées à Wikidata" AS ?description)
+  }
+  UNION
+  {
+    INCLUDE %siren
+    BIND("Nombre de liens avec SIRENE" AS ?description)
+  }
+}
+ORDER BY DESC(?count)

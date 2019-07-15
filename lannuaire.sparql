@@ -1,4 +1,4 @@
-SELECT ?datagouvid ?siren ?lannuaire_id WHERE {
+SELECT ?datagouvid ?lannuaire_id WHERE {
   ?item wdt:P3206 ?datagouvid.
   ?item wdt:P6671 ?lannuaire_id.
 }
