@@ -1,5 +1,5 @@
 SELECT ?datagouvid ?lannuaire_id WHERE {
-  ?item wdt:P3206 ?datagouvid.
-  ?item wdt:P6671 ?lannuaire_id.
+  ?item wdt:P3206 ?datagouvid ;
+        wdt:P6671 ?lannuaire_id.
 }
 ORDER BY (?datagouvid)
