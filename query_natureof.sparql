@@ -1,0 +1,29 @@
+SELECT  ?category ?categoryLabel (COUNT (?item) as ?count) WHERE {
+  SELECT DISTINCT ?item ?category ?categoryLabel WHERE {
+  VALUES ?category {
+    wd:Q484170
+    wd:Q159321
+    wd:Q35120
+    wd:Q163740
+    wd:Q4830453
+    wd:Q423785
+    wd:Q2824642
+    wd:Q43229
+    wd:Q31728
+    wd:Q2707796
+    wd:Q14037025
+    wd:Q3918
+    wd:Q2872764
+    wd:Q33506
+    wd:Q31855
+    wd:Q583157
+    wd:Q19758733
+  }
+  ?item wdt:P31 ?instance_of;
+    wdt:P3206 ?datagouvid.
+  ?instance_of (wdt:P279*) ?category.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
+}
+}
+GROUP BY ?category ?categoryLabel
+ORDER BY DESC(?count)

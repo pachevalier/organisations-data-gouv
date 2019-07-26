@@ -1,4 +1,4 @@
-SELECT ?date ?datagouvcount
+SELECT ?date ?datagouvcount ?duplicatescount ?sirencount
 WITH {
   SELECT (COUNT(*) AS ?datagouvcount) WHERE {
     SELECT ?datagouvid ?item
@@ -7,9 +7,29 @@ WITH {
        }
    }
 } AS %datagouvid
+WITH {
+  SELECT (COUNT(*) AS ?duplicatescount) WHERE {
+     SELECT * WHERE {
+       {
+          SELECT ?item (COUNT(?datagouvid) AS ?count) (GROUP_CONCAT(?datagouvid; SEPARATOR = " , ") AS ?ids)
+           WHERE { ?item wdt:P3206 ?datagouvid. }
+      GROUP BY ?item
+    }
+    FILTER(?count > 1)
+  }
+ }
+} AS %duplicates
+WITH {
+SELECT (COUNT(*) AS ?sirencount) WHERE {
+  ?item wdt:P3206 ?datagouvid;
+    wdt:P1616 ?siren.
+    }
+} AS %siren
 WHERE {
   {
     BIND(NOW() AS ?date)
     INCLUDE %datagouvid
+    INCLUDE %duplicates
+    INCLUDE %siren
   }
 }
