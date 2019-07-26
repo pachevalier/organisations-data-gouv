@@ -1,0 +1,10 @@
+SELECT ?subclasses ?subclassesLabel (COUNT(?item) as ?count) WHERE {
+  SELECT DISTINCT ?item ?subclasses ?subclassesLabel WHERE {
+  ?item wdt:P3206 ?data_gouv_fr_organisation_ID.
+  ?item wdt:P31 ?instance_of.
+  ?instance_of wdt:P279* ?subclasses.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "fr" }
+}
+}
+GROUP BY ?subclasses ?subclassesLabel
+ORDER BY DESC(?count)
