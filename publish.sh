@@ -13,6 +13,7 @@ export resource_id_siren="8ed46317-288c-481c-829a-068f4ceb00ee"
 export resource_id_twitter="538f4021-d834-405f-8a51-c698b70c705f"
 export api_key=$API_KEY
 
+curl "$api/datasets/$dataset_id/resources/bad4181e-c90f-4019-a086-7a2644807108/upload/" -F "file=@dataportals.csv" -H "X-API-KEY:$api_key"
 curl "$api/datasets/$dataset_id/resources/$resource_id_twitter/upload/" -F "file=@twitter.csv" -H "X-API-KEY:$api_key"
 curl "$api/datasets/$dataset_id/resources/90df863e-61a3-474f-9888-05ff04b15137/upload/" -F "file=@rna.csv" -H "X-API-KEY:$api_key"
 curl "$api/datasets/$dataset_id/resources/70213c49-a490-4fd1-ace4-0f9f0638fbec/upload/" -F "file=@lannuaire.csv" -H "X-API-KEY:$api_key"
